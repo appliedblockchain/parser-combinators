@@ -42,7 +42,7 @@ const union =
     async (input /*: string */) => {
       for (const a of as) {
         const [ s, r ] = await maybe(a)(input)
-        if (typeof r !== undefined) {
+        if (typeof r !== 'undefined') {
           return [ s, r ]
         }
       }
