@@ -4,9 +4,6 @@
 
 import type { Parser } from './types/parser'
 
-// There is Sierpinski triangle and now we have flow triangle. Some say that the author
-// decided on flow-types-in-comments because his editor would crash on this "beauty".
-
 declare function seq<A>(Parser<A>): Parser<[A]>;
 declare function seq<A,B>(Parser<A>,Parser<B>): Parser<[A,B]>;
 declare function seq<A,B,C>(Parser<A>,Parser<B>,Parser<C>): Parser<[A,B,C]>;
@@ -39,11 +36,11 @@ declare function seq<A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z>(Parser
 // $FlowFixMe
 const sequence =
   (...as /*: Parser<any>[] */) =>
-    async (input /*: string */) => {
+    (input /*: string */) => {
       const rs = []
       let s = input
       for (const a of as) {
-        const r = await a(s)
+        const r = a(s)
         s = r[0]
         rs.push(r[1])
       }

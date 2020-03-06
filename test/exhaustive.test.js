@@ -5,7 +5,7 @@ const literal = require('../literal')
 
 const a = literal('a')
 
-test('exhaustive', async () => {
-  await expect(exhaustive(a)('a')).resolves.toEqual([ '', 'a' ])
-  await expect(exhaustive(a)('ab')).rejects.toThrowError('a')
+test('exhaustive', () => {
+  expect(exhaustive(a)('a')).toEqual([ '', 'a' ])
+  expect(() => exhaustive(a)('ab')).toThrowError('a')
 })

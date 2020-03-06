@@ -39,9 +39,9 @@ declare function union<A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z>(Pars
 // $FlowFixMe
 const union =
   (...as /*: Parser<any>[] */) =>
-    async (input /*: string */) => {
+    (input /*: string */) => {
       for (const a of as) {
-        const [ s, r ] = await maybe(a)(input)
+        const [ s, r ] = maybe(a)(input)
         if (typeof r !== 'undefined') {
           return [ s, r ]
         }

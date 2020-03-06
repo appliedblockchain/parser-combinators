@@ -4,13 +4,13 @@
 const jsonOfXml = require('./json-of-xml')
 
 test('basic', async () => {
-  await expect(jsonOfXml('<foo />')).resolves.toMatchObject({})
-  await expect(jsonOfXml('<foo  bar="baz"/>')).resolves.toMatchObject({ _bar: 'baz' })
-  await expect(jsonOfXml('<foo><ns:bar baz="1" /></foo>')).resolves.toMatchObject({ bar: { _baz: '1' } })
+  expect(jsonOfXml('<foo />')).toMatchObject({})
+  expect(jsonOfXml('<foo  bar="baz"/>')).toMatchObject({ _bar: 'baz' })
+  expect(jsonOfXml('<foo><ns:bar baz="1" /></foo>')).toMatchObject({ bar: { _baz: '1' } })
 })
 
 test('complex', async () => {
-  await expect(jsonOfXml(`
+  expect(jsonOfXml(`
     <catalog>
        <product description="Cardigan Sweater" product_image="cardigan.jpg">
        <catalog_item gender="Men's">
@@ -50,7 +50,7 @@ test('complex', async () => {
        </catalog_item>
      </product>
     </catalog>
-  `)).resolves.toEqual({
+  `)).toEqual({
     "product": {
       "_description": "Cardigan Sweater",
       "_product_image": "cardigan.jpg",

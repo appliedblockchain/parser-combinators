@@ -63,13 +63,13 @@ const elementR /*: Parser<Id> */ =
   map(sequence(ws0, literal('</'), id, ws0, literal('>')), ([ , , name ]) => name)
 
 const element /*: Parser<Element> */ =
-  async input =>
+  input =>
     either(
       element1,
       map(
         predicate(
           sequence(elementL, star(element), elementR),
-          async ([ _, , __ ]) => _.name.value === __.value && _.name.ns === __.ns
+          ([ _, , __ ]) => _.name.value === __.value && _.name.ns === __.ns
         ),
         ([ node, children ]) => ({ ...node, children })
       )
@@ -99,12 +99,13 @@ const jsonOfAst = (node /*: any */) => {
   }
 }
 
-const jsonOfXml = (xml /*: string */) /*: Promise<{}> */ =>
-  element(xml).then(_ => {
-    if (_[0].trim() !== '') {
-      throw new Invalid(_[0])
+const jsonOfXml =
+  (xml /*: string */) /*: {} */ => {
+    const [ s, r ] = element(xml)
+    if (s.trim() !== '') {
+      throw new Invalid(s)
     }
-    return jsonOfAst(_[1])
-  })
+    return jsonOfAst(r)
+  }
 
 module.exports = jsonOfXml

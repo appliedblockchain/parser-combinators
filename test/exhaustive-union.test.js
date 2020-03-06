@@ -6,10 +6,10 @@ const literal = require('../literal')
 const a = literal('a')
 const b = literal('b')
 
-test('union', async () => {
-  await expect(exhaustiveUnion(a, b)('a')).resolves.toEqual([ '', 'a' ])
-  await expect(exhaustiveUnion(a, b)('b')).resolves.toEqual([ '', 'b' ])
-  await expect(exhaustiveUnion(a, b)('c')).rejects.toThrowError('c')
-  await expect(exhaustiveUnion(a, b)('a ')).rejects.toThrowError('a ')
-  await expect(exhaustiveUnion(a, b)('b ')).rejects.toThrowError('b ')
+test('union', () => {
+  expect(exhaustiveUnion(a, b)('a')).toEqual([ '', 'a' ])
+  expect(exhaustiveUnion(a, b)('b')).toEqual([ '', 'b' ])
+  expect(() => exhaustiveUnion(a, b)('c')).toThrowError('c')
+  expect(() => exhaustiveUnion(a, b)('a ')).toThrowError('a ')
+  expect(() => exhaustiveUnion(a, b)('b ')).toThrowError('b ')
 })

@@ -1,8 +1,12 @@
 // @flow
 
-/*:: import type { Parser } from './types/parser' */
+/*:: import type { Parser as P } from './types/parser' */
 
-const then = /*:: <A, B> */(a /*: Parser<A> */, f /*: A => Parser<B> */) /*: Parser<B> */ =>
-  async input => a(input).then(_ => f(_[1])(_[0]))
+const then /*: <A, B>(P<A>, A => P<B>) => P<B> */ = /*:: <A, B> */
+  (a, f) =>
+    input => {
+      const [ s, r ] = a(input)
+      return f(r)(s)
+    }
 
 module.exports = then

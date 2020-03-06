@@ -7,7 +7,7 @@ const regex = require('../regex')
 /*:: import type { Parser } from '../types/parser' */
 
 const date /*: Parser<Date> */ =
-  async input =>
+  input =>
     map(regex(/^\d{4}-\d{2}-\d{2}/), ([ _ ]) => {
       const r = new Date(_)
       if (isNaN(r)) {

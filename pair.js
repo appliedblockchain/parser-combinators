@@ -1,9 +1,13 @@
 // @flow
 
-/*:: import type { Parser } from './types/parser' */
+/*:: import type { Parser as P } from './types/parser' */
 
-const pair = /*:: <A, B> */ (a /*: Parser<A> */, b /*: Parser<B> */) /*: Parser<[A, B]> */ =>
-  async input =>
-    a(input).then(_ => b(_[0]).then(__ => [ __[0], [ _[1], __[1] ] ]))
+const pair /*: <A, B>(P<A>, P<B>) => P<[A, B]> */ = /*:: <A, B> */
+  (a, b) =>
+    input => {
+      const [ sa, ra ] = a(input)
+      const [ sb, rb ] = b(sa)
+      return [ sb, [ ra, rb ] ]
+    }
 
 module.exports = pair

@@ -1,11 +1,15 @@
 // @flow
 
-/*:: import type { Parser } from './types/parser' */
+/*:: import type { Parser as P } from './types/parser' */
 
-const maybe = /*:: <A> */(a /*: Parser<A> */) /*: Parser<?A> */ =>
-  async input => {
-    const [ s, r ] = await a(input).catch(() => [ input, void 0 ])
-    return [ s, r ]
-  }
+const maybe /*: <A>(P<A>) => P<?A> */ = /*:: <A> */
+  (a) =>
+    input => {
+      try {
+        return a(input)
+      } catch (err) {
+        return [ input, undefined ]
+      }
+    }
 
 module.exports = maybe

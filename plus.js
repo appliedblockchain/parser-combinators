@@ -2,9 +2,10 @@
 
 const star = require('./star')
 
-/*:: import type { Parser } from './types/parser' */
+/*:: import type { Parser as P } from './types/parser' */
 
-const plus = /*:: <A> */(a /*: Parser<A> */) /*: Parser<A[]> */ =>
-  star(a, 1)
+const plus /*: <A>(P<A>) => P<A[]> */ = /*:: <A> */
+  (a) =>
+    star(a, 1)
 
 module.exports = plus

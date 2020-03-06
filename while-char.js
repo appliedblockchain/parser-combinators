@@ -1,10 +1,10 @@
 // @flow
 
-/*:: import type { Parser } from './types/Parser' */
+/*:: import type { Parser as P } from './types/Parser' */
 
-const whileChar =
-  (f /*: string => boolean */) /*: Parser<string> */ =>
-    async input => {
+const whileChar /*: (string => boolean) => P<string> */ =
+  f =>
+    input => {
       let i
       for (i = 0; i < input.length; i++) {
         if (!f(input[0])) {

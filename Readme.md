@@ -1,6 +1,6 @@
 ## Summary
 
-Monadic parser combinators on Promise.
+Monadic parser combinators.
 
 ## License
 

@@ -2,15 +2,16 @@
 
 const Invalid = require('./invalid')
 
-/*:: import type { Parser } from './types/parser' */
+/*:: import type { Parser as P } from './types/parser' */
 
-const predicate = /*:: <A> */(a /*: Parser<A> */, f /*: A => Promise<boolean> */) /*: Parser<A> */ =>
-  async input => {
-    const r = await a(input)
-    if (!(await f(r[1]))) {
-      throw new Invalid(input)
+const predicate /*: <A>(P<A>, A => boolean) => P<A> */ = /*:: <A> */
+  (a, f) =>
+    input => {
+      const [ s, r ] = a(input)
+      if (!f(r)) {
+        throw new Invalid(input)
+      }
+      return [ s, r ]
     }
-    return r
-  }
 
 module.exports = predicate

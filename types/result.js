@@ -2,6 +2,6 @@
 
 /*::
 
-export type Result<R> = Promise<[ string, R ]>
+export type Result<R> = [ string, R ]
 
 */

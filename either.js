@@ -1,11 +1,15 @@
 // @flow
 
-/*:: import type { Parser } from './types/parser' */
+/*:: import type { Parser as P } from './types/parser' */
 
-const either = /*:: <A, B> */(a /*: Parser<A> */, b /*: Parser<B> */) /*: Parser<A | B> */ =>
-  async input => {
-    const [ s, r ] = await a(input).catch(() => b(input))
-    return [ s, r ]
-  }
+const either /*: <A, B>(P<A>, P<B>) => P<A | B> */ = /*:: <A, B> */
+  (a, b) =>
+    input => {
+      try {
+        return a(input)
+      } catch (err) {
+        return b(input)
+      }
+    }
 
 module.exports = either
