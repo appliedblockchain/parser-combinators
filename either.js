@@ -1,5 +1,7 @@
 // @flow
 
+const Invalid = require('./invalid')
+
 /*:: import type { Parser as P } from './types/parser' */
 
 const either /*: <A, B>(P<A>, P<B>) => P<A | B> */ = /*:: <A, B> */
@@ -8,7 +10,10 @@ const either /*: <A, B>(P<A>, P<B>) => P<A | B> */ = /*:: <A, B> */
       try {
         return a(input)
       } catch (err) {
-        return b(input)
+        if (err instanceof Invalid) {
+          return b(input)
+        }
+        throw err
       }
     }
 

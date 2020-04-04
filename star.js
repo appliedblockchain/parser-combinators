@@ -14,7 +14,10 @@ const star /*: <A>(P<A>, min?: number) => P<A[]> */ = /*:: <A> */
         try {
           eat(a(s))
         } catch (err) {
-          break
+          if (err instanceof Invalid) {
+            break
+          }
+          throw err
         }
       }
       if (r.length < min) {
