@@ -2,7 +2,9 @@
 
 const Invalid = require('./invalid')
 
-const exhaustiveResult /*: <R>(string => [string, R]) => R */ = /*:: <R> */
+/*:: import type { Parser } from './types/parser' */
+
+const exhaustiveResult /*: <R>(Parser<R>) => (string => R) */ = /*:: <R> */
   (a) =>
     input => {
       const [ s, r ] = a(input)
