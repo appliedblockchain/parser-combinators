@@ -1,11 +1,11 @@
-// @flow
+// @flow strict
 
 const { inspect } = require('util')
 const Invalid = require('./invalid')
 
-/*:: import type { Parser } from './types/parser' */
+/*:: import type { Parser as P } from './types/parser' */
 
-const whileChar /*: (string, min?: number) => Parser<string> */ =
+const whileChar /*: (string, min?: number) => P<string> */ =
   (chars, min = 0) =>
     input => {
       let i

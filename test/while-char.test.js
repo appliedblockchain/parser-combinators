@@ -1,13 +1,12 @@
 // @flow
 
-const whileChar = require('../while-char')
-const exhaustiveResult = require('../exhaustive-result')
+const $ = require('../')
 
 const ws0 =
-  exhaustiveResult(whileChar(' '))
+  $.exhaustiveResult($.whileChar(' '))
 
 const ws1 =
-  exhaustiveResult(whileChar(' ', 1))
+  $.exhaustiveResult($.whileChar(' ', 1))
 
 test('whileChar', () => {
   expect(ws0(' ')).toEqual(' ')

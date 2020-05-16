@@ -4,7 +4,8 @@
   "description": "Monadic parser combinators.",
   "main": "index.js",
   "scripts": {
-    "test": "eslint . && flow check && jest"
+    "test": "eslint . && flow check && jest",
+    "update": "npm-check --update --save-exact"
   },
   "keywords": [
     "parser",
@@ -16,9 +17,10 @@
   "license": "MIT",
   "devDependencies": {
     "@appliedblockchain/eslint-config": "2.6.0",
-    "eslint": "6.8.0",
-    "flow-bin": "0.122.0",
-    "jest": "25.2.7"
+    "eslint": "7.0.0",
+    "flow-bin": "0.125.1",
+    "jest": "26.0.1",
+    "npm-check": "5.9.2"
   },
   "eslintConfig": {
     "extends": "@appliedblockchain",

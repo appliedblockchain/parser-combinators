@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 const Invalid = require('./invalid')
 

@@ -1,14 +1,6 @@
 // @flow
 
-const either = require('../either')
-const Invalid = require('../Invalid')
-const literal = require('../literal')
-const map = require('../map')
-const pair = require('../pair')
-const predicate = require('../predicate')
-const regex = require('../regex')
-const sequence = require('../sequence')
-const star = require('../star')
+const $ = require('../')
 
 /*::
 
@@ -27,48 +19,48 @@ const nodeOf = (type, object) =>
   ({ type, ...object })
 
 const ws0 =
-  map(regex(/^[ \t\r\n]*/), _ => _.join(''))
+  $.map($.regex(/^[ \t\r\n]*/), _ => _.join(''))
 
 const ws1 =
-  map(regex(/^[ \t\r\n]+/), _ => _.join(''))
+  $.map($.regex(/^[ \t\r\n]+/), _ => _.join(''))
 
 const id0 /*: Parser<Id> */ =
-  map(pair(regex(/^[a-z_]/i), regex(/^[a-z0-9_-]*/i)), _ => nodeOf('Id', { value: _.join(''), ns: null }))
+  $.map($.pair($.regex(/^[a-z_]/i), $.regex(/^[a-z0-9_-]*/i)), _ => nodeOf('Id', { value: _.join(''), ns: null }))
 
 const id1 /*: Parser<Id> */ =
-  map(sequence(id0, literal(':'), id0), _ => nodeOf('Id', { value: _[2].value, ns: _[0].value }))
+  $.map($.sequence(id0, $.literal(':'), id0), _ => nodeOf('Id', { value: _[2].value, ns: _[0].value }))
 
 const id /*: Parser<Id> */ =
-  either(id1, id0)
+  $.either(id1, id0)
 
 const text0 /*: Parser<string> */ =
-  map(regex(/^[^<>]*/), _ => _.join(''))
+  $.map($.regex(/^[^<>]*/), _ => _.join(''))
 
 const string /*: Parser<string> */ =
-  either(
-    map(sequence(literal('\''), regex(/^[^']*/), literal('\'')), ([ , _ ]) => _.join('')),
-    map(sequence(literal('"'), regex(/^[^"]*/), literal('"')), ([ , _ ]) => _.join(''))
+  $.either(
+    $.map($.sequence($.literal('\''), $.regex(/^[^']*/), $.literal('\'')), ([ , _ ]) => _.join('')),
+    $.map($.sequence($.literal('"'), $.regex(/^[^"]*/), $.literal('"')), ([ , _ ]) => _.join(''))
   )
 
 const attribute /*: Parser<Attribute> */=
-  map(sequence(ws1, id, literal('='), string), ([ , name, , value ]) => ({ type: 'Attribute', name, value }))
+  $.map($.sequence(ws1, id, $.literal('='), string), ([ , name, , value ]) => ({ type: 'Attribute', name, value }))
 
 const element1 /*: Parser<Element> */ =
-  map(sequence(ws0, literal('<'), id, star(attribute), ws0, literal('/>')), ([ , , name, attributes ]) => ({ type: 'Element', name, attributes, children: [], text: undefined }))
+  $.map($.sequence(ws0, $.literal('<'), id, $.star(attribute), ws0, $.literal('/>')), ([ , , name, attributes ]) => ({ type: 'Element', name, attributes, children: [], text: undefined }))
 
 const elementL /*: Parser<Element> */ =
-  map(sequence(ws0, literal('<'), id, star(attribute), ws0, literal('>'), text0), ([ , , name, attributes, , , text_ ]) => ({ type: 'Element', name, attributes, children: [], text: text_.trim() === '' ? undefined : text_.trim() }))
+  $.map($.sequence(ws0, $.literal('<'), id, $.star(attribute), ws0, $.literal('>'), text0), ([ , , name, attributes, , , text_ ]) => ({ type: 'Element', name, attributes, children: [], text: text_.trim() === '' ? undefined : text_.trim() }))
 
 const elementR /*: Parser<Id> */ =
-  map(sequence(ws0, literal('</'), id, ws0, literal('>')), ([ , , name ]) => name)
+  $.map($.sequence(ws0, $.literal('</'), id, ws0, $.literal('>')), ([ , , name ]) => name)
 
 const element /*: Parser<Element> */ =
   input =>
-    either(
+    $.either(
       element1,
-      map(
-        predicate(
-          sequence(elementL, star(element), elementR),
+      $.map(
+        $.predicate(
+          $.sequence(elementL, $.star(element), elementR),
           ([ _, , __ ]) => _.name.value === __.value && _.name.ns === __.ns
         ),
         ([ node, children ]) => ({ ...node, children })
@@ -103,7 +95,7 @@ const jsonOfXml =
   (xml /*: string */) /*: {} */ => {
     const [ s, r ] = element(xml)
     if (s.trim() !== '') {
-      throw new Invalid(s)
+      throw new $.Invalid(s)
     }
     return jsonOfAst(r)
   }

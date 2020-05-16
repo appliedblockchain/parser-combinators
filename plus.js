@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 const star = require('./star')
 

@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 const exhaustive = require('./exhaustive')
 const Invalid = require('./invalid')

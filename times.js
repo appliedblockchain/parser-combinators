@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 /*:: import type { Parser as P } from './types/parser' */
 

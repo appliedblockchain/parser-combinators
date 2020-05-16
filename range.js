@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 const map = require('./map')
 const pair = require('./pair')

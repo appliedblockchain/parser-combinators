@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 const map = require('./map')
 const sequence = require('./sequence')
@@ -6,14 +6,10 @@ const star = require('./star')
 const right = require('./right')
 const maybe = require('./maybe')
 
-/*::
+/*:: import type { Parser as P } from './types/parser' */
 
-import type { Parser } from './types/parser'
-
-*/
-
-const interpolated /*: <A>(Parser<A>, Parser<any>) => Parser<A[]> */ = /*:: <A> */
+const separated /*: <A>(P<A>, P<mixed>) => P<A[]> */ = /*:: <A> */
   (a, s) =>
     map(sequence(maybe(a), star(right(s, a))), ([ first, rest ]) => (typeof first === 'undefined' ? [] : [ first, ...rest ]))
 
-module.exports = interpolated
+module.exports = separated
