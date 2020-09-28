@@ -19,15 +19,15 @@
   "devDependencies": {
     "@appliedblockchain/eslint-config": "2.6.0",
     "@tsconfig/node12": "1.0.7",
-    "@types/jest": "26.0.13",
-    "@typescript-eslint/eslint-plugin": "4.0.1",
-    "@typescript-eslint/parser": "4.0.1",
-    "eslint": "7.8.1",
-    "eslint-plugin-jest": "23.20.0",
+    "@types/jest": "26.0.14",
+    "@typescript-eslint/eslint-plugin": "4.2.0",
+    "@typescript-eslint/parser": "4.2.0",
+    "eslint": "7.10.0",
+    "eslint-plugin-jest": "24.0.2",
     "jest": "26.4.2",
     "npm-check": "5.9.2",
-    "ts-jest": "26.3.0",
-    "typescript": "4.0.2"
+    "ts-jest": "26.4.0",
+    "typescript": "4.0.3"
   },
   "eslintConfig": {
     "root": true,
