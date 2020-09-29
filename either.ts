@@ -1,5 +1,5 @@
 import Invalid from './invalid'
-import P from './types/parser'
+import type P from './types/parser'
 
 export const either: <A, B>(a: P<A>, b: P<B>) => P<A | B> =
   (a, b) =>

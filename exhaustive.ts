@@ -1,5 +1,5 @@
 import Invalid from './invalid'
-import P from './types/parser'
+import type P from './types/parser'
 
 export const exhaustive: <A>(a: P<A>) => P<A> =
   a =>

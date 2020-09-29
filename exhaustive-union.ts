@@ -1,7 +1,7 @@
 import exhaustive from './exhaustive'
 import Invalid from './invalid'
 import maybe from './maybe'
-import P from './types/parser'
+import type P from './types/parser'
 
 type ResultOfParser<T extends P<unknown>> = T extends P<infer R> ? R : never
 

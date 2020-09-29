@@ -1,5 +1,5 @@
 import map from './map'
-import P from './types/parser'
+import type P from './types/parser'
 import pair from './pair'
 
 export const left: <A, B>(a: P<A>, b: P<B>) => P<A> =
