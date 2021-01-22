@@ -1,6 +1,6 @@
 {
   "name": "@appliedblockchain/parser-combinators",
-  "version": "4.0.2",
+  "version": "4.1.0",
   "description": "Monadic parser combinators.",
   "main": "index.js",
   "scripts": {
