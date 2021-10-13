@@ -18,7 +18,7 @@
   "license": "MIT",
   "devDependencies": {
     "@appliedblockchain/eslint-config": "2.6.0",
-    "@tsconfig/node12": "1.0.7",
+    "@tsconfig/node14": "1.0.1",
     "@types/jest": "26.0.20",
     "@typescript-eslint/eslint-plugin": "4.14.0",
     "@typescript-eslint/parser": "4.14.0",
