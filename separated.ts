@@ -1,9 +1,9 @@
-import map from './map'
-import sequence from './sequence'
-import star from './star'
-import right from './right'
-import maybe from './maybe'
-import type P from './types/parser'
+import map from './map.js'
+import sequence from './sequence.js'
+import star from './star.js'
+import right from './right.js'
+import maybe from './maybe.js'
+import type { Parser as P } from './types/parser.js'
 
 export const separated: <A>(a: P<A>, s: P<unknown>) => P<A[]> =
   (a, s) =>

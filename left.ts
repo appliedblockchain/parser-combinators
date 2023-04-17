@@ -1,6 +1,6 @@
-import map from './map'
-import type P from './types/parser'
-import pair from './pair'
+import map from './map.js'
+import type { Parser as P } from './types/parser.js'
+import pair from './pair.js'
 
 export const left: <A, B>(a: P<A>, b: P<B>) => P<A> =
   (a, b) =>

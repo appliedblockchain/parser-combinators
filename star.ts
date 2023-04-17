@@ -1,6 +1,6 @@
-import Invalid from './invalid'
-import type P from './types/parser'
-import type R from './types/result'
+import Invalid from './invalid.js'
+import type { Parser as P } from './types/parser.js'
+import type { Result as R } from './types/result.js'
 
 export const star =
   <A>(a: P<A>, min = 0): P<A[]> =>

@@ -1,7 +1,7 @@
-import exhaustive from './exhaustive'
-import Invalid from './invalid'
-import maybe from './maybe'
-import type P from './types/parser'
+import exhaustive from './exhaustive.js'
+import Invalid from './invalid.js'
+import maybe from './maybe.js'
+import type { Parser as P } from './types/parser.js'
 
 type ResultOfParser<T extends P<unknown>> = T extends P<infer R> ? R : never
 

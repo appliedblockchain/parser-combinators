@@ -1,4 +1,4 @@
-import $ from '../'
+import $ from '../index.js'
 
 const a = $.literal('a')
 const b = $.literal('b')

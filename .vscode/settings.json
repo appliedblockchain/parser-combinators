@@ -1,7 +1,4 @@
 {
-  "files.exclude": {
-    "**/*.js": true
-  },
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true
 }

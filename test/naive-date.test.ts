@@ -1,4 +1,4 @@
-import date from '../naive/date'
+import date from '../naive/date.js'
 
 test('naive/date', () => {
   expect(date('2001-02-03foo')).toEqual([ 'foo', new Date('2001-02-03') ])

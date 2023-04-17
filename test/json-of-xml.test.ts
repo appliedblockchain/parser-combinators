@@ -1,6 +1,6 @@
 /* eslint-disable quotes */
 
-import jsonOfXml from './json-of-xml'
+import jsonOfXml from './json-of-xml.js'
 
 test('basic', async () => {
   expect(jsonOfXml('<foo />')).toMatchObject({})

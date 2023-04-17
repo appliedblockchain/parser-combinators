@@ -1,4 +1,4 @@
-import $ from '../'
+import $ from '../index.js'
 
 const ws0 =
   $.exhaustiveResult($.whileChar(' '))

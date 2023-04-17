@@ -1,4 +1,4 @@
-import type P from './types/parser'
+import type { Parser as P } from './types/parser.js'
 
 export const pair: <A, B>(a: P<A>, b: P<B>) => P<[A, B]> =
   (a, b) =>

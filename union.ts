@@ -1,6 +1,6 @@
-import Invalid from './invalid'
-import maybe from './maybe'
-import type P from './types/parser'
+import Invalid from './invalid.js'
+import maybe from './maybe.js'
+import type { Parser as P } from './types/parser.js'
 
 export const union =
   <T extends P<unknown>[]>(...as: T): T[number] =>

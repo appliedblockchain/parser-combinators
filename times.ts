@@ -1,5 +1,5 @@
-import type P from './types/parser'
-import type Result from './types/result'
+import type { Parser as P } from './types/parser.js'
+import type { Result } from './types/result.js'
 
 export const times =
   <A>(a: P<A>, n: number): P<A[]> =>

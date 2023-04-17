@@ -1,6 +1,6 @@
 import { inspect } from 'util'
-import Invalid from './invalid'
-import type P from './types/parser'
+import Invalid from './invalid.js'
+import type { Parser as P } from './types/parser.js'
 
 export const whileChar: (chars: string, min?: number) => P<string> =
   (chars, min = 0) =>
