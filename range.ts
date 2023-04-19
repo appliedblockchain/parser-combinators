@@ -1,8 +1,8 @@
-import map from './map'
-import pair from './pair'
-import star from './star'
-import times from './times'
-import type P from './types/parser'
+import map from './map.js'
+import pair from './pair.js'
+import star from './star.js'
+import times from './times.js'
+import type { Parser as P } from './types/parser.js'
 
 export const range: <A>(a: P<A>, min: number, max: number) => P<A[]> =
   (a, min, max) =>

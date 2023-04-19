@@ -1,5 +1,5 @@
-import type P from '../types/parser'
-import Invalid from '../invalid'
+import type { Parser as P } from '../types/parser.js'
+import Invalid from '../invalid.js'
 
 const digits = [ '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' ]
 

@@ -1,5 +1,5 @@
-import $ from '../'
-import type Parser from '../types/parser'
+import $ from '../index.js'
+import type { Parser } from '../types/parser.js'
 
 type Id = {
   type: 'Id',

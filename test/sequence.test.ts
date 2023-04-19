@@ -1,4 +1,4 @@
-import $ from '../'
+import $ from '../index.js'
 
 test('sequence', () => {
   const r: [ string, Date ] = $.exhaustiveResult($.sequence($.literal('date:'), $.naive.date))('date:2000-01-01')

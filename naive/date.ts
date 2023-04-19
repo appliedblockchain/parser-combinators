@@ -1,7 +1,7 @@
-import Invalid from '../invalid'
-import map from '../map'
-import regex from '../regex'
-import type P from '../types/parser'
+import Invalid from '../invalid.js'
+import map from '../map.js'
+import regex from '../regex.js'
+import type { Parser as P } from '../types/parser.js'
 
 export const date: P<Date> =
   input =>

@@ -1,4 +1,4 @@
-import type P from './types/parser'
+import type { Parser as P } from './types/parser.js'
 
 type ResultOfParser<T> = T extends P<infer R> ? R : never
 

@@ -1,4 +1,4 @@
-import type P from './types/parser'
+import type { Parser as P } from './types/parser.js'
 
 export const map: <A, B>(a: P<A>, f: (_: A) => B) => P<B> =
   (a, f) =>

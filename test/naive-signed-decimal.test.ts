@@ -1,4 +1,4 @@
-import signedDecimal from '../naive/signed-decimal'
+import signedDecimal from '../naive/signed-decimal.js'
 
 test('naive/signed-decimal', () => {
   expect(signedDecimal('-012')).toEqual([ '', -12 ])

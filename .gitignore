@@ -1,3 +1,6 @@
 node_modules
 wip
 *.js
+esm
+cjs/*
+!cjs/package.json

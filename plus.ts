@@ -1,5 +1,5 @@
-import star from './star'
-import type P from './types/parser'
+import star from './star.js'
+import type { Parser as P } from './types/parser.js'
 
 export const plus: <A>(a: P<A>) => P<A[]> =
   a =>

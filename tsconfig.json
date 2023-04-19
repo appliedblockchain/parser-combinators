@@ -1,17 +1,20 @@
 {
-  "extends": "@tsconfig/node14/tsconfig.json",
+  "extends": "@tsconfig/node18/tsconfig.json",
   "compilerOptions": {
+    "module": "NodeNext",
+    "verbatimModuleSyntax": true,
     "noImplicitAny": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
-    "importsNotUsedAsValues": "error"
+    "composite": true,
+    "declarationMap": true,
+    "outDir": "esm"
   },
-  "include": [
-    "**/*.ts"
-  ],
   "exclude": [
     "node_modules",
-    "wip"
+    "wip",
+    "esm",
+    "cjs"
   ]
 }
